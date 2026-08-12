@@ -1,15 +1,12 @@
-import type { Metadata } from 'next';
-import { Manrope } from 'next/font/google';
-import './globals.css';
-
-const manrope = Manrope({
-  subsets: ['latin', 'cyrillic'],
-  variable: '--font-manrope',
-});
+import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: 'EZBusiness',
-  description: 'Личное сопровождение бизнеса и ИИ-помощники',
+  title: "EZBusiness",
+  description: "Открой свой путь в бизнес",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
@@ -19,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={manrope.variable}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
