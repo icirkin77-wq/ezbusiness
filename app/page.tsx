@@ -1,286 +1,448 @@
 import Image from "next/image";
+import Link from "next/link";
+import AiChat from "./components/AiChat";
+import Pricing from "./components/Pricing";
+
+const problems = [
+  {
+    icon: "💡",
+    title: "Нет идеи",
+    text: "Поможем найти направление, которое подходит именно вам.",
+  },
+  {
+    icon: "📊",
+    title: "Не знаете цифр",
+    text: "Разберём расходы, доходы и возможную прибыль ещё до запуска.",
+  },
+  {
+    icon: "🚀",
+    title: "Не знаете с чего начать",
+    text: "Разложим путь от первой идеи до первых клиентов по шагам.",
+  },
+];
+
+const steps = [
+  {
+    number: "01",
+    title: "Идея",
+    text: "Разбираемся, чем вы хотите заниматься и какую проблему решает ваш бизнес.",
+  },
+  {
+    number: "02",
+    title: "Анализ",
+    text: "Проверяем идею, аудиторию, конкурентов и основные риски.",
+  },
+  {
+    number: "03",
+    title: "План",
+    text: "Считаем экономику и превращаем идею в понятный план действий.",
+  },
+  {
+    number: "04",
+    title: "Запуск",
+    text: "Переходим от планов к конкретным действиям и первым результатам.",
+  },
+];
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0B1220] text-white">
-      {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0B1220]/90 backdrop-blur">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6">
-          <div className="flex items-center gap-3">
-            <Image
-              src="/logo-transparent.png"
-              alt="EZBusiness logo"
-              width={48}
-              height={48}
-              className="rounded-full object-contain logo-glow"
-            />
+    <main className="min-h-screen overflow-hidden bg-[#0B1220] text-white">
 
-            <div>
-              <p className="text-xl font-bold text-white">EZBusiness</p>
-              <p className="text-sm text-gray-400">
-                Открой свой путь в бизнес
-              </p>
-            </div>
-          </div>
+      {/* HERO */}
+      <section className="relative">
+        <div className="absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-orange-600/10 blur-[140px]" />
 
-          {/* Desktop navigation */}
-          <nav className="hidden items-center gap-8 text-sm text-gray-300 lg:flex">
-            <a href="#how" className="transition hover:text-white">
-              Как мы работаем
-            </a>
-            <a href="#ai" className="transition hover:text-white">
-              ИИ-помощники
-            </a>
-            <a href="#reviews" className="transition hover:text-white">
-              Отзывы
-            </a>
-            <a href="#about" className="transition hover:text-white">
-              Обо мне
-            </a>
-            <a href="#contact" className="transition hover:text-white">
-              Контакты
-            </a>
-          </nav>
+        <div className="relative mx-auto grid min-h-[calc(100vh-80px)] max-w-7xl items-center gap-16 px-5 py-20 sm:px-8 lg:grid-cols-[1.05fr_0.95fr]">
 
-          <a
-            href="#contact"
-            className="rounded-2xl bg-[#C2410C] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#C2410C]/30 transition hover:-translate-y-0.5 hover:bg-[#EA580C]"
-          >
-            Написать мне
-          </a>
-        </div>
-      </header>
+          <div className="max-w-3xl">
 
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-[#0F172A]">
-        {/* Background glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_30%,rgba(253,186,116,0.22),transparent_25%),radial-gradient(circle_at_70%_50%,rgba(194,65,12,0.12),transparent_35%),radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.03),transparent_30%)]" />
-
-        {/* Light beam */}
-        <div className="pointer-events-none absolute right-[-10%] top-0 h-full w-[55%] bg-gradient-to-l from-[#FDBA74]/20 via-[#FDBA74]/8 to-transparent blur-3xl light-pulse" />
-
-        <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:py-24 hero-animate">
-          {/* Left */}
-          <div className="space-y-6">
-            <div className="inline-flex items-center rounded-full border border-[#C2410C]/30 bg-[#C2410C]/10 px-3 py-1 text-sm text-[#FDBA74]">
+            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-orange-500/20 bg-orange-500/10 px-4 py-2 text-sm text-orange-300">
+              <span className="h-2 w-2 rounded-full bg-orange-500" />
               Личное сопровождение + ИИ
             </div>
 
-            <h1 className="text-5xl font-extrabold leading-tight sm:text-6xl lg:text-7xl">
+            <h1 className="text-5xl font-black leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
               Выйдите из
-              <span className="block text-[#C2410C]">неизвестности</span>
-              к своему бизнесу
+              <span className="block text-orange-600">
+                неизвестности
+              </span>
+              к своему
+              <span className="block">
+                бизнесу
+              </span>
             </h1>
 
-            <p className="max-w-xl text-lg leading-relaxed text-gray-300">
-              EZBusiness помогает сделать первый шаг, даже если вы никогда не
-              занимались бизнесом. Вместе мы найдём идею, составим план и
-              запустим ваш проект с постоянной поддержкой человека и
-              ИИ-помощников.
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-gray-400 sm:text-xl">
+              EZBusiness помогает начинающим предпринимателям пройти путь
+              от идеи до первых результатов — без лишней сложности,
+              хаоса и попыток разобраться во всём самостоятельно.
             </p>
 
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#contact"
-                className="rounded-2xl bg-[#C2410C] px-6 py-4 text-center font-semibold text-white shadow-2xl shadow-[#C2410C]/30 transition hover:-translate-y-0.5 hover:bg-[#EA580C] cta-float"
-              >
-                Начать бизнес со мной
-              </a>
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
 
-              <a
-                href="#how"
-                className="rounded-2xl border border-white/15 bg-white/5 px-6 py-4 text-center font-semibold text-white transition hover:border-[#FDBA74] hover:bg-white/10"
+              <Link
+                href="/contact"
+                className="group rounded-2xl bg-orange-700 px-7 py-4 text-center font-bold transition duration-300 hover:-translate-y-1 hover:bg-orange-600 hover:shadow-2xl hover:shadow-orange-900/30"
               >
-                Как мы работаем
-              </a>
+                Начать свой путь
+                <span className="ml-2 transition group-hover:ml-3">
+                  →
+                </span>
+              </Link>
+
+              <Link
+                href="/how"
+                className="rounded-2xl border border-white/10 bg-white/[0.04] px-7 py-4 text-center font-bold transition duration-300 hover:-translate-y-1 hover:bg-white/[0.08]"
+              >
+                Как это работает
+              </Link>
+
             </div>
 
-            <div className="flex flex-wrap gap-4 pt-2 text-sm text-gray-400">
+            <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-sm text-gray-500">
               <span>✓ Без опыта</span>
-              <span>✓ Пошаговый запуск</span>
-              <span>✓ Постоянная связь</span>
+              <span>✓ Пошаговый подход</span>
+              <span>✓ ИИ-помощники</span>
+              <span>✓ Личная связь</span>
             </div>
+
           </div>
 
-          {/* Right */}
-          <div className="relative flex justify-center lg:justify-end">
-            <div className="absolute inset-0 translate-x-6 translate-y-6 rounded-full bg-[#FDBA74]/10 blur-3xl light-pulse" />
+          {/* VISUAL */}
+          <div className="relative hidden min-h-[520px] items-center justify-center lg:flex">
 
-            <div className="relative logo-glow">
+            <div className="absolute h-80 w-80 rounded-full bg-orange-600/20 blur-[100px]" />
+
+            <div className="absolute right-5 top-16 h-24 w-24 rounded-3xl border border-white/10 bg-white/[0.05] backdrop-blur-xl" />
+
+            <div className="absolute bottom-20 left-5 h-20 w-20 rounded-2xl border border-white/10 bg-white/[0.05] backdrop-blur-xl" />
+
+            <div className="relative flex h-[390px] w-[390px] items-center justify-center rounded-full border border-white/10 bg-white/[0.03] shadow-2xl shadow-orange-950/20 backdrop-blur-sm">
+
+              <div className="absolute inset-8 rounded-full border border-orange-500/10" />
+
               <Image
                 src="/logo-transparent.png"
-                alt="EZBusiness logo"
-                width={560}
-                height={560}
+                alt="EZBusiness"
+                width={300}
+                height={300}
                 priority
-                className="hero-logo object-contain sm:w-[520px] lg:w-[560px]"
+                className="relative h-64 w-64 object-contain drop-shadow-2xl"
               />
+
             </div>
+
+            <div className="absolute right-0 top-24 rounded-2xl border border-white/10 bg-[#111a2c]/90 px-5 py-4 shadow-xl backdrop-blur-xl">
+              <div className="text-xs text-gray-500">
+                Следующий шаг
+              </div>
+              <div className="mt-1 font-semibold">
+                Определить идею →
+              </div>
+            </div>
+
+            <div className="absolute bottom-20 right-12 rounded-2xl border border-white/10 bg-[#111a2c]/90 px-5 py-4 shadow-xl backdrop-blur-xl">
+              <div className="text-xs text-gray-500">
+                EZBusiness
+              </div>
+              <div className="mt-1 font-semibold text-orange-400">
+                Идея → План → Запуск
+              </div>
+            </div>
+
           </div>
+
         </div>
       </section>
 
-      {/* How */}
-      <section id="how" className="bg-[#111827] py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="mx-auto mb-12 max-w-2xl text-center">
-            <div className="mb-3 inline-flex items-center rounded-full border border-[#C2410C]/20 bg-[#C2410C]/10 px-3 py-1 text-sm text-[#FDBA74]">
-              Пошаговый процесс
-            </div>
+      {/* PROBLEM */}
+      <section className="border-y border-white/10 bg-[#0E1728]">
+        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
 
-            <h2 className="text-3xl font-bold sm:text-5xl">
-              Как мы работаем
+          <div className="max-w-2xl">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-orange-500">
+              Знакомо?
+            </p>
+
+            <h2 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+              Самое сложное —
+              <span className="text-gray-500">
+                {" "}начать.
+              </span>
             </h2>
 
-            <p className="mt-4 text-lg text-gray-400">
-              Всё просто: вы пишете мне, мы разбираем идею, составляем план и
-              запускаем ваш бизнес шаг за шагом.
+            <p className="mt-6 text-lg leading-8 text-gray-400">
+              Необязательно сразу знать всё о бизнесе
+              Важно понимать, какой следующий шаг нужно сделать
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-            {[
-              "Вы пишете мне",
-              "Разбираем идею",
-              "Получаете план",
-              "Запускаете бизнес",
-              "Растёте дальше",
-            ].map((step, index) => (
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+
+            {problems.map((item, index) => (
               <div
-                key={step}
-                className="rounded-3xl border border-white/10 bg-[#0F172A] p-6 text-center shadow-sm"
+                key={item.title}
+                className="group rounded-3xl border border-white/10 bg-white/[0.035] p-7 transition duration-300 hover:-translate-y-2 hover:border-orange-500/30 hover:bg-white/[0.06]"
               >
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#C2410C] text-lg font-bold text-white">
-                  {index + 1}
+                <div className="flex items-center justify-between">
+                  <div className="text-4xl">
+                    {item.icon}
+                  </div>
+
+                  <span className="text-sm text-gray-600">
+                    0{index + 1}
+                  </span>
                 </div>
 
-                <p className="font-semibold text-white">{step}</p>
+                <h3 className="mt-8 text-2xl font-bold">
+                  {item.title}
+                </h3>
+
+                <p className="mt-4 leading-7 text-gray-400">
+                  {item.text}
+                </p>
+
+                <div className="mt-7 h-px w-12 bg-orange-600 transition-all duration-300 group-hover:w-20" />
               </div>
             ))}
+
           </div>
+
+        </div>
+      </section>
+
+      {/* HOW */}
+      <section className="relative">
+        <div className="absolute right-0 top-40 h-72 w-72 rounded-full bg-orange-600/10 blur-[120px]" />
+
+        <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8">
+
+          <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+
+            <div className="max-w-2xl">
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-orange-500">
+                Как мы работаем
+              </p>
+
+              <h2 className="mt-4 text-4xl font-bold sm:text-5xl">
+                От идеи до запуска
+              </h2>
+            </div>
+
+            <Link
+              href="/how"
+              className="text-sm font-semibold text-gray-400 transition hover:text-white"
+            >
+              Подробнее о процессе →
+            </Link>
+
+          </div>
+
+          <div className="mt-14 grid gap-5 md:grid-cols-4">
+
+            {steps.map((step) => (
+              <div
+                key={step.number}
+                className="relative rounded-3xl border border-white/10 bg-white/[0.025] p-6 transition duration-300 hover:-translate-y-2 hover:bg-white/[0.05]"
+              >
+                <div className="text-5xl font-black text-orange-600/30">
+                  {step.number}
+                </div>
+
+                <h3 className="mt-8 text-2xl font-bold">
+                  {step.title}
+                </h3>
+
+                <p className="mt-4 text-sm leading-7 text-gray-400">
+                  {step.text}
+                </p>
+              </div>
+            ))}
+
+          </div>
+
         </div>
       </section>
 
       {/* AI */}
-      <section id="ai" className="bg-[#0B1220] py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="mx-auto mb-12 max-w-2xl text-center">
-            <h2 className="text-3xl font-bold sm:text-5xl">
-              ИИ-помощники EZBusiness
-            </h2>
+ {/* ================= AI SECTION ================= */}
+<section className="relative overflow-hidden border-t border-white/10 bg-[#0F172A] px-5 py-24 sm:px-8 lg:py-32">
+  
+  {/* Декоративное свечение */}
+  <div className="absolute left-1/2 top-1/2 h-[400px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-600/10 blur-[120px]" />
 
-            <p className="mt-4 text-lg text-gray-400">
-              Со временем здесь появятся настоящие инструменты, которые будут
-              экономить вам часы работы каждую неделю.
-            </p>
-          </div>
+  <div className="relative mx-auto max-w-7xl">
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                title: "Генератор идей",
-                text: "Помогает найти бизнес-нишу под ваш бюджет и навыки.",
-              },
-              {
-                title: "Бизнес-план",
-                text: "Собирает пошаговый план запуска и первых продаж.",
-              },
-              {
-                title: "Контент",
-                text: "Создаёт посты, описания товаров и тексты для сайта.",
-              },
-              {
-                title: "Финансы",
-                text: "Считает цену, прибыль и точку безубыточности.",
-              },
-            ].map((card) => (
-              <div
-                key={card.title}
-                className="group rounded-3xl border border-white/10 bg-[#111827] p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#C2410C]/10"
-              >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#C2410C]/10 text-xl group-hover:bg-[#C2410C] group-hover:text-white">
-                  ✦
-                </div>
+    {/* Заголовок */}
+    <div className="mx-auto max-w-3xl text-center">
 
-                <h3 className="text-xl font-semibold text-white">{card.title}</h3>
+      <div className="mb-5 inline-flex rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-2 text-sm font-medium text-orange-300">
+        EZBUSINESS × AI
+      </div>
 
-                <p className="mt-2 text-gray-400">{card.text}</p>
-              </div>
-            ))}
-          </div>
+      <h2 className="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+        Ваш бизнес.
+        <span className="block text-orange-500">
+          Мой опыт.
+        </span>
+        <span className="block">
+          Сила ИИ.
+        </span>
+      </h2>
+
+      <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-gray-400">
+        Вам не нужно самостоятельно разбираться в нейросетях.
+        Я использую современные ИИ-инструменты внутри своей работы,
+        чтобы помогать вам быстрее находить решения и двигаться к результату.
+      </p>
+
+    </div>
+
+    {/* СХЕМА */}
+    <div className="mt-16 grid gap-4 md:grid-cols-3 md:items-center">
+
+      {/* ВЫ */}
+      <div className="group rounded-3xl border border-white/10 bg-white/[0.04] p-7 text-center backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-white/20">
+
+        <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-2xl">
+          👤
         </div>
-      </section>
 
-      {/* CTA */}
-      <section id="contact" className="bg-[#0B1220] py-20">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          <div className="rounded-[36px] border border-white/10 bg-[#111827] p-8 text-center text-white shadow-2xl sm:p-12">
-            <div className="mx-auto mb-6 flex justify-center">
-              <Image
-                src="/logo-transparent.png"
-                alt="EZBusiness logo"
-                width={96}
-                height={96}
-                className="rounded-full shadow-2xl shadow-[#C2410C]/30"
-              />
+        <div className="text-sm font-medium uppercase tracking-wider text-gray-500">
+          Шаг 01
+        </div>
+
+        <h3 className="mt-2 text-2xl font-bold">
+          Вы
+        </h3>
+
+        <p className="mt-3 text-gray-400">
+          Рассказываете о своей идее, задаче или проблеме.
+        </p>
+
+      </div>
+
+      {/* ЦЕНТР */}
+      <div className="relative rounded-3xl border border-orange-500/20 bg-orange-500/[0.08] p-7 text-center shadow-2xl shadow-orange-950/20">
+
+        <div className="absolute -left-3 top-1/2 hidden -translate-y-1/2 text-2xl text-orange-500 md:block">
+          →
+        </div>
+
+        <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-500/15 text-2xl">
+          ⚡
+        </div>
+
+        <div className="text-sm font-medium uppercase tracking-wider text-orange-400">
+          Шаг 02
+        </div>
+
+        <h3 className="mt-2 text-2xl font-bold">
+          EZBusiness
+        </h3>
+
+        <p className="mt-3 text-gray-300">
+          Я анализирую задачу и использую подходящие инструменты.
+        </p>
+
+      </div>
+
+      {/* РЕЗУЛЬТАТ */}
+      <div className="relative rounded-3xl border border-white/10 bg-white/[0.04] p-7 text-center backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-white/20">
+
+        <div className="absolute -left-3 top-1/2 hidden -translate-y-1/2 text-2xl text-orange-500 md:block">
+          →
+        </div>
+
+        <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-2xl">
+          🚀
+        </div>
+
+        <div className="text-sm font-medium uppercase tracking-wider text-gray-500">
+          Шаг 03
+        </div>
+
+        <h3 className="mt-2 text-2xl font-bold">
+          Результат
+        </h3>
+
+        <p className="mt-3 text-gray-400">
+          Вы получаете понятные решения и следующие шаги.
+        </p>
+
+      </div>
+
+    </div>
+
+    {/* Нижняя часть */}
+    <div className="mt-14 flex flex-col items-center justify-between gap-6 rounded-3xl border border-white/10 bg-black/10 p-6 sm:flex-row sm:p-7">
+
+      <div>
+        <div className="text-lg font-bold">
+          Вы общаетесь со мной.
+        </div>
+
+        <div className="mt-1 text-gray-500">
+          ИИ работает за кулисами.
+        </div>
+      </div>
+
+      <Link
+        href="/ai"
+        className="shrink-0 rounded-2xl border border-orange-500/30 bg-orange-500/10 px-6 py-3 font-semibold text-orange-400 transition hover:bg-orange-500/20"
+      >
+        Узнать больше об ИИ →
+      </Link>
+
+    </div>
+
+  </div>
+</section>
+      {/* PRICING */}
+      <Pricing />
+
+
+      {/* FOOTER */}
+      <footer className="border-t border-white/10 bg-[#080E1A]">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-10 sm:px-8 md:flex-row md:items-center md:justify-between">
+
+          <div>
+            <div className="font-bold">
+              EZBusiness
             </div>
 
-            <h2 className="text-3xl font-bold sm:text-5xl">
-              Готовы открыть свой бизнес?
-            </h2>
-
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
-              Напишите мне, и мы вместе найдём идею, составим план и начнём
-              двигаться к вашему первому доходу.
-            </p>
-
-            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-              <a
-                href="#"
-                className="rounded-2xl bg-[#C2410C] px-6 py-4 font-semibold text-white transition hover:bg-[#EA580C]"
-              >
-                Telegram
-              </a>
-
-              <a
-                href="#"
-                className="rounded-2xl border border-white/20 bg-white/5 px-6 py-4 font-semibold transition hover:bg-white/10"
-              >
-                VK
-              </a>
-
-              <a
-                href="#"
-                className="rounded-2xl border border-white/20 bg-white/5 px-6 py-4 font-semibold transition hover:bg-white/10"
-              >
-                MAX
-              </a>
+            <div className="mt-1 text-sm text-gray-500">
+              Открой свой путь в бизнес
             </div>
-
-            <p className="mt-6 text-sm text-gray-400">
-              Контакты временные — завтра добавим настоящие ссылки.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="border-t border-white/10 bg-[#0B1220]">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-6 text-sm text-gray-400 sm:flex-row sm:px-6">
-          <div className="flex items-center gap-2">
-            <Image
-              src="/logo-transparent.png"
-              alt="EZBusiness logo"
-              width={28}
-              height={28}
-              className="rounded-full"
-            />
-            <span>© 2026 EZBusiness</span>
           </div>
 
-          <span>Открой свой путь в бизнес</span>
+          <div className="flex flex-wrap gap-5 text-sm text-gray-500">
+            <Link href="/how" className="transition hover:text-white">
+              Как мы работаем
+            </Link>
+
+            <Link href="/ai" className="transition hover:text-white">
+              ИИ-помощники
+            </Link>
+
+            <Link href="/reviews" className="transition hover:text-white">
+              Отзывы
+            </Link>
+
+            <Link href="/about" className="transition hover:text-white">
+              Обо мне
+            </Link>
+
+            <Link href="/contact" className="transition hover:text-white">
+              Контакты
+            </Link>
+          </div>
+
         </div>
       </footer>
+
+      <AiChat />
+
     </main>
   );
 }
-

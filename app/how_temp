@@ -1,0 +1,59 @@
+import Link from "next/link";
+
+export default function HowPage() {
+  return (
+    <main className="min-h-screen bg-[#0B1220] text-white">
+      <header className="border-b border-white/10 bg-[#09111f]">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+          <Link href="/" className="text-2xl font-bold">
+            EZBusiness
+          </Link>
+
+          <nav className="flex gap-6 text-gray-300">
+            <Link href="/how" className="text-orange-500">
+              Как мы работаем
+            </Link>
+            <Link href="/ai">ИИ-помощники</Link>
+            <Link href="/reviews">Отзывы</Link>
+            <Link href="/about">Обо мне</Link>
+            <Link href="/contact">Контакты</Link>
+          </nav>
+        </div>
+      </header>
+
+      <section className="mx-auto max-w-5xl px-6 py-24">
+        <p className="mb-4 text-orange-500">КАК МЫ РАБОТАЕМ</p>
+
+        <h1 className="mb-8 text-5xl font-bold">
+          От идеи до работающего бизнеса
+        </h1>
+
+        <p className="mb-12 max-w-3xl text-xl leading-8 text-gray-400">
+          Вместе разбираем вашу идею, считаем экономику, составляем план
+          действий и постепенно запускаем бизнес.
+        </p>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {[
+            ["01", "Идея", "Разбираем вашу идею и определяем перспективность."],
+            ["02", "План", "Считаем расходы, доходы и составляем план запуска."],
+            ["03", "Запуск", "Переходим к конкретным действиям и развитию."],
+          ].map(([number, title, text]) => (
+            <div
+              key={number}
+              className="rounded-3xl border border-white/10 bg-white/5 p-7"
+            >
+              <div className="mb-5 text-3xl font-bold text-orange-500">
+                {number}
+              </div>
+
+              <h2 className="mb-3 text-2xl font-bold">{title}</h2>
+
+              <p className="leading-7 text-gray-400">{text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}
