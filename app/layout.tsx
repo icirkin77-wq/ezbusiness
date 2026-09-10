@@ -26,10 +26,7 @@ export default function RootLayout({
           <div className="mx-auto flex h-20 w-full max-w-7xl items-center px-5 sm:px-8">
             {/* ================= LOGO ================= */}
 
-            <Link
-              href="/"
-              className="group flex items-center gap-3"
-            >
+            <Link href="/" className="group flex items-center gap-3">
               <div className="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-full">
                 <div className="absolute inset-0 bg-orange-600/20 blur-xl transition group-hover:bg-orange-500/40" />
 
@@ -92,14 +89,16 @@ export default function RootLayout({
                 Контакты
               </Link>
 
-              {/* CTA */}
+              {/* ================= TELEGRAM CTA ================= */}
 
-              <Link
-                href="/contact"
+              <a
+                href="https://t.me/EZbusinessEZ"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="ml-2 rounded-xl bg-orange-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-orange-900/20 transition duration-300 hover:bg-orange-500 hover:shadow-orange-600/20"
               >
                 Написать мне
-              </Link>
+              </a>
             </nav>
 
             {/* ================= MOBILE MENU ================= */}
@@ -112,9 +111,7 @@ export default function RootLayout({
 
         {/* ================= PAGE ================= */}
 
-        <PageTransition>
-          {children}
-        </PageTransition>
+        <PageTransition>{children}</PageTransition>
       </body>
     </html>
   );
