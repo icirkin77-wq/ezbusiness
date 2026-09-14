@@ -42,17 +42,9 @@ body {
   color: white;
 }
 
-@media (min-width: 768px) {
-  html {
-    scrollbar-gutter: stable;
-  }
-
-  body {
-    overflow-x: hidden;
-  }
-}
-
-/* Premium utility effects */
+/* =========================================
+   EZBUSINESS DESIGN SYSTEM
+   ========================================= */
 
 .ez-glow {
   box-shadow:
@@ -62,35 +54,46 @@ body {
 
 .ez-card {
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(
-    135deg,
-    rgba(23, 32, 51, 0.96),
-    rgba(17, 26, 43, 0.96)
-  );
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(23, 32, 51, 0.96),
+      rgba(17, 26, 43, 0.96)
+    );
 }
 
 .ez-pill {
   display: inline-flex;
   align-items: center;
+
   border: 1px solid rgba(249, 115, 22, 0.35);
   border-radius: 9999px;
+
   background: rgba(249, 115, 22, 0.06);
+
   padding: 10px 20px;
+
   color: rgb(251 146 60);
+
   font-size: 13px;
   font-weight: 600;
+
   letter-spacing: 0.08em;
 }
 
 .ez-orange-text {
-  background: linear-gradient(
-    90deg,
-    #fb923c,
-    #f97316,
-    #fdba74
-  );
+  background:
+    linear-gradient(
+      90deg,
+      #fb923c,
+      #f97316,
+      #fdba74
+    );
+
   background-clip: text;
   -webkit-background-clip: text;
+
   color: transparent;
 }
 
@@ -104,8 +107,60 @@ body {
 
 .ez-hover:hover {
   transform: translateY(-4px);
+
   border-color: rgba(249, 115, 22, 0.3);
 }
+
+/* =========================================
+   SCROLLBAR
+   ========================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080e1a;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(249, 115, 22, 0.45);
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 767px) {
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+}
+
+/* =========================================
+   DESKTOP
+   ========================================= */
+
+@media (min-width: 768px) {
+  html {
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
   html {
