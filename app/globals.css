@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0B1220;
+  --background: #0b1220;
   --foreground: #ffffff;
 }
 
@@ -15,9 +15,11 @@ html {
 
 body {
   margin: 0;
-  background: #0B1220;
+  background: #0b1220;
   color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -28,11 +30,18 @@ button,
 a {
   -webkit-tap-highlight-color: transparent;
 }
+
 html,
 body {
   max-width: 100%;
   overflow-x: hidden;
 }
+
+::selection {
+  background: rgba(249, 115, 22, 0.25);
+  color: white;
+}
+
 @media (min-width: 768px) {
   html {
     scrollbar-gutter: stable;
@@ -42,11 +51,72 @@ body {
     overflow-x: hidden;
   }
 }
-.page-transition {
-  opacity: 0;
-  transition: opacity 180ms ease-out;
+
+/* Premium utility effects */
+
+.ez-glow {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 25px 80px rgba(0, 0, 0, 0.25);
 }
 
-.page-transition[data-visible="true"] {
-  opacity: 1;
+.ez-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(
+    135deg,
+    rgba(23, 32, 51, 0.96),
+    rgba(17, 26, 43, 0.96)
+  );
+}
+
+.ez-pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  border-radius: 9999px;
+  background: rgba(249, 115, 22, 0.06);
+  padding: 10px 20px;
+  color: rgb(251 146 60);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.ez-orange-text {
+  background: linear-gradient(
+    90deg,
+    #fb923c,
+    #f97316,
+    #fdba74
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.ez-hover {
+  transition:
+    transform 300ms ease,
+    border-color 300ms ease,
+    background-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.ez-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(249, 115, 22, 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }
