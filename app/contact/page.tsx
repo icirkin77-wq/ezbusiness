@@ -2,120 +2,172 @@ import Link from "next/link";
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-[#0B1220]">
-      <section className="mx-auto max-w-7xl px-5 pb-24 pt-16 sm:px-8 sm:pt-24">
-        <div className="grid gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-24">
-          
-          {/* LEFT */}
-          <div>
-            <div className="mb-8 flex items-center gap-3">
-              <span className="h-px w-10 bg-orange-500" />
-              <span className="text-sm font-medium uppercase tracking-[0.18em] text-orange-400">
-                Контакты
-              </span>
+    <main className="min-h-screen overflow-hidden bg-[#0B1220]">
+      {/* HERO */}
+      <section className="relative">
+        <div className="pointer-events-none absolute left-1/2 top-[-180px] h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-orange-600/15 blur-[140px]" />
+
+        <div className="mx-auto max-w-7xl px-5 pb-16 pt-16 sm:px-8 sm:pb-20 sm:pt-24">
+          <div className="relative max-w-4xl">
+            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-orange-500/20 bg-orange-500/10 px-4 py-2 text-xs font-semibold tracking-[0.16em] text-orange-400">
+              <span className="h-1.5 w-1.5 rounded-full bg-orange-400" />
+              EZBUSINESS
             </div>
 
-            <h1 className="max-w-2xl text-5xl font-semibold leading-[1.02] tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl">
-              Есть идея?
+            <h1 className="text-5xl font-bold leading-[1.02] tracking-[-0.045em] text-white sm:text-6xl lg:text-7xl">
+              Давай начнём
               <br />
-              <span className="text-gray-500">Давайте обсудим.</span>
+              <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-300 bg-clip-text text-transparent">
+                с разговора.
+              </span>
             </h1>
 
-            <p className="mt-8 max-w-xl text-lg leading-8 text-gray-400">
-              Расскажите, чем вы хотите заниматься или какой результат хотите
-              получить. Я помогу разобраться с идеей и понять, с чего начать.
+            <p className="mt-7 max-w-2xl text-base leading-7 text-gray-400 sm:text-lg sm:leading-8">
+              Есть идея, вопрос или уже работающий бизнес?
+              Напиши мне. Разберёмся вместе и определим, какой следующий
+              шаг имеет смысл именно для тебя.
             </p>
-
-            <div className="mt-10 flex flex-wrap gap-3">
-              <a
-                href="https://t.me/EZbusinessEZ"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-xl bg-orange-600 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-orange-500"
-              >
-                Написать в Telegram
-              </a>
-
-              <a
-                href="mailto:cirkinila88@gmail.com"
-                className="rounded-xl border border-white/10 px-6 py-3.5 text-sm font-semibold text-gray-200 transition hover:border-white/20 hover:bg-white/5"
-              >
-                Написать на почту
-              </a>
-            </div>
-          </div>
-
-          {/* RIGHT */}
-          <div className="lg:pl-8">
-            <div className="border-y border-white/10">
-              
-              <a
-                href="https://t.me/EZbusinessEZ"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-between gap-6 py-7 transition"
-              >
-                <div>
-                  <div className="mb-2 text-sm text-gray-500">
-                    Telegram
-                  </div>
-                  <div className="text-xl font-medium text-white transition group-hover:text-orange-400">
-                    @EZbusinessEZ
-                  </div>
-                </div>
-
-                <span className="text-2xl text-gray-600 transition group-hover:translate-x-1 group-hover:text-orange-400">
-                  →
-                </span>
-              </a>
-
-              <a
-                href="mailto:cirkinila88@gmail.com"
-                className="group flex items-center justify-between gap-6 border-t border-white/10 py-7 transition"
-              >
-                <div>
-                  <div className="mb-2 text-sm text-gray-500">
-                    Email
-                  </div>
-                  <div className="break-all text-xl font-medium text-white transition group-hover:text-orange-400">
-                    cirkinila88@gmail.com
-                  </div>
-                </div>
-
-                <span className="text-2xl text-gray-600 transition group-hover:translate-x-1 group-hover:text-orange-400">
-                  →
-                </span>
-              </a>
-            </div>
-
-            <div className="mt-10">
-              <p className="text-sm leading-6 text-gray-500">
-                Вы общаетесь со мной.
-                <br />
-                <span className="text-gray-300">
-                  ИИ работает за кулисами.
-                </span>
-              </p>
-            </div>
           </div>
         </div>
+      </section>
 
-        {/* BOTTOM */}
-        <div className="mt-24 border-t border-white/10 pt-8">
-          <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-sm text-gray-500">
-              Не знаете, с чего начать? Это нормально.
-            </p>
+      {/* CONTACT CARDS */}
+      <section className="mx-auto max-w-7xl px-5 pb-20 sm:px-8">
+        <div className="grid gap-5 md:grid-cols-2">
+          {/* TELEGRAM */}
+          <a
+            href="https://t.me/EZbusinessEZ"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative min-h-[300px] overflow-hidden rounded-[30px] border border-white/10 bg-[#111A2B] p-7 transition duration-300 hover:-translate-y-1 hover:border-orange-500/30 sm:p-9"
+          >
+            <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-orange-600/10 blur-[80px] transition duration-500 group-hover:bg-orange-600/20" />
+
+            <div className="relative flex h-full flex-col justify-between">
+              <div className="flex items-center justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-500/10 text-xl text-orange-400">
+                  ↗
+                </div>
+
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-gray-500 transition group-hover:border-orange-500/20 group-hover:text-orange-400">
+                  Telegram
+                </span>
+              </div>
+
+              <div className="mt-16">
+                <p className="text-sm text-gray-500">Написать мне</p>
+
+                <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                  @EZbusinessEZ
+                </h2>
+
+                <p className="mt-3 max-w-sm text-sm leading-6 text-gray-500">
+                  Быстрый способ связаться со мной и обсудить твою задачу.
+                </p>
+              </div>
+            </div>
+          </a>
+
+          {/* EMAIL */}
+          <a
+            href="mailto:cirkinila88@gmail.com"
+            className="group relative min-h-[300px] overflow-hidden rounded-[30px] border border-white/10 bg-[#111A2B] p-7 transition duration-300 hover:-translate-y-1 hover:border-orange-500/30 sm:p-9"
+          >
+            <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-orange-600/5 blur-[90px] transition duration-500 group-hover:bg-orange-600/15" />
+
+            <div className="relative flex h-full flex-col justify-between">
+              <div className="flex items-center justify-between">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 text-xl text-gray-300">
+                  @
+                </div>
+
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-gray-500 transition group-hover:border-orange-500/20 group-hover:text-orange-400">
+                  Email
+                </span>
+              </div>
+
+              <div className="mt-16">
+                <p className="text-sm text-gray-500">Электронная почта</p>
+
+                <h2 className="mt-2 break-all text-xl font-bold tracking-tight text-white sm:text-2xl">
+                  cirkinila88@gmail.com
+                </h2>
+
+                <p className="mt-3 max-w-sm text-sm leading-6 text-gray-500">
+                  Можно написать подробно — я ознакомлюсь и отвечу.
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      {/* AI BLOCK */}
+      <section className="mx-auto max-w-7xl px-5 pb-20 sm:px-8">
+        <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-[#172033] via-[#111A2B] to-[#0F1726] p-7 sm:p-10 lg:p-12">
+          <div className="pointer-events-none absolute right-[-100px] top-[-100px] h-80 w-80 rounded-full bg-orange-600/10 blur-[100px]" />
+
+          <div className="relative grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <div className="mb-5 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-gray-400">
+                EZBUSINESS × AI
+              </div>
+
+              <h2 className="max-w-3xl text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
+                Вы общаетесь со мной.
+                <br />
+                <span className="text-gray-500">
+                  ИИ работает за кулисами.
+                </span>
+              </h2>
+
+              <p className="mt-5 max-w-2xl text-sm leading-7 text-gray-400 sm:text-base">
+                Вам не нужно разбираться в нейросетях и десятках сервисов.
+                Я лично работаю с вами, а современные ИИ-инструменты помогают
+                мне анализировать идеи, находить решения и создавать нужные
+                материалы.
+              </p>
+            </div>
 
             <Link
-              href="/how"
-              className="group inline-flex items-center gap-2 text-sm font-medium text-gray-300 transition hover:text-white"
+              href="/ai"
+              className="group inline-flex w-fit items-center gap-3 rounded-2xl bg-orange-600 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-orange-950/20 transition duration-300 hover:bg-orange-500"
             >
-              Посмотреть, как мы работаем
+              Посмотреть ИИ-помощников
               <span className="transition group-hover:translate-x-1">
                 →
               </span>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="mx-auto max-w-7xl px-5 pb-24 sm:px-8">
+        <div className="relative overflow-hidden rounded-[32px] border border-orange-500/20 bg-gradient-to-br from-orange-600/20 via-orange-500/10 to-[#111827] px-6 py-12 text-center sm:px-10 sm:py-16">
+          <div className="pointer-events-none absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-500/10 blur-[100px]" />
+
+          <div className="relative">
+            <p className="text-sm font-medium text-orange-400">
+              Первый шаг
+            </p>
+
+            <h2 className="mx-auto mt-3 max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Не знаешь, с чего начать?
+              <br />
+              <span className="text-gray-400">
+                Просто напиши мне.
+              </span>
+            </h2>
+
+            <a
+              href="https://t.me/EZbusinessEZ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex rounded-2xl bg-orange-600 px-7 py-4 text-sm font-bold text-white shadow-xl shadow-orange-950/30 transition duration-300 hover:bg-orange-500"
+            >
+              Написать в Telegram
+            </a>
           </div>
         </div>
       </section>
